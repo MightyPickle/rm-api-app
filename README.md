@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# This is Rck&Morty API App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Deployed at
+
+https://mightypickle.github.io/rm-api-app/
 
 ## Available Scripts
 
