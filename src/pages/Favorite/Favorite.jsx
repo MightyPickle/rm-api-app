@@ -8,7 +8,11 @@ export default function Favorite() {
     <div className="favorite-container">
       {favorites.length
         ? <AllCards characters={favorites} />
-        : <p>No characters</p>}
+        : (
+          <div className="favorite-empty">
+            <p>No characters</p>
+          </div>
+        )}
     </div>
   );
 }

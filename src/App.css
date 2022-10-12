@@ -211,11 +211,16 @@
 }
 
 .favorite-container {
-    height: calc(100vh - var(--nav-height));
-    padding: 40vh 0;
+    height: max-content;
 }
 
-.favorite-container>p {
+.favorite-empty {
+    height: calc(100vh - var(--nav-height));
+    padding: 40vh 0;
+
+}
+
+.favorite-empty>p {
     text-align: center;
     font-size: 1.8rem;
     color: grey;
