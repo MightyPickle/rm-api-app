@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/rm-api-app/static/css/main.7239caf8.css",
-    "main.js": "/rm-api-app/static/js/main.21e1ffee.js",
+    "main.css": "/rm-api-app/static/css/main.e4fe746a.css",
+    "main.js": "/rm-api-app/static/js/main.f2dc7813.js",
     "index.html": "/rm-api-app/index.html",
-    "main.7239caf8.css.map": "/rm-api-app/static/css/main.7239caf8.css.map",
-    "main.21e1ffee.js.map": "/rm-api-app/static/js/main.21e1ffee.js.map"
+    "main.e4fe746a.css.map": "/rm-api-app/static/css/main.e4fe746a.css.map",
+    "main.f2dc7813.js.map": "/rm-api-app/static/js/main.f2dc7813.js.map"
   },
   "entrypoints": [
-    "static/css/main.7239caf8.css",
-    "static/js/main.21e1ffee.js"
+    "static/css/main.e4fe746a.css",
+    "static/js/main.f2dc7813.js"
   ]
 }
