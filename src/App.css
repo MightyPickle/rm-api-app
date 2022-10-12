@@ -1,38 +1,223 @@
 .App {
-  text-align: center;
+    background-color: var(--bg-main);
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav {
+    position: fixed;
+    float: initial;
+    z-index: 100;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--nav-height);
+    font-size: clamp(1.3rem, 1.3rem + 1.5vw, 1.6rem);
+    background-color: var(--bg-nav);
+    box-shadow: var(--shadow);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav .logo {
+    position: fixed;
+    left: 2rem;
+    height: 4rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.nav ul {
+    justify-content: center;
+    list-style: none;
+    text-transform: uppercase;
 }
 
-.App-link {
-  color: #61dafb;
+.nav a {
+    color: var(--color-nav-text);
+    text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav a:hover {
+    text-shadow: 0 0 3px rgb(0, 242, 255);
+}
+
+.theme-toggler {
+    position: fixed;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggler>span {
+    display: inline-block;
+    height: 26px;
+    width: 26px;
+    margin: .5rem;
+}
+
+.theme-switch {
+    width: 3rem;
+    height: 1.5rem;
+    border-radius: 14px;
+    /* border: solid 1px black; */
+    background-color: var(--bg-second);
+    cursor: pointer;
+    position: relative;
+}
+
+.toggler-circle {
+    /* border: solid 1px black; */
+    width: 1.35rem;
+    height: 1.35rem;
+    border-radius: 50%;
+    position: absolute;
+    left: .07rem;
+    top: .07rem;
+    background-color: var(--bg-main);
+    transition: left .2s ease-in-out;
+}
+
+.dark .theme-switch .toggler-circle {
+    top: .07rem;
+    left: calc(.07rem + 50%);
+}
+
+.input-container {
+    width: max(97%, 30rem);
+    padding: 2rem 0;
+    margin: auto;
+    background-color: var(--bg-body);
+    margin: 2rem auto;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    /* margin: 0 auto; */
+}
+
+.input {
+    border: solid 1px rgba(169, 194, 169, 0.59);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    padding: .5rem 1.5rem;
+    flex-grow: 1;
+    font-family: inherit;
+}
+
+.input:focus {
+    box-shadow: 0 0 3px rgb(2, 248, 2);
+    outline: solid 1px rgba(53, 223, 53, 0.878);
+
+}
+
+.btn {
+    padding: .5rem;
+    margin-left: 1rem;
+    border-radius: 10px;
+    border: solid 1px rgba(169, 194, 169, 0.59);
+    background-color: white;
+    font-size: 1.1rem;
+    font-family: inherit;
+
+}
+
+.btn:hover {
+    background-color: rgb(60, 185, 93);
+    box-shadow: 0 0 3px rgba(2, 248, 64, 0.847);
+    color: white;
+    cursor: pointer;
+}
+
+.container {
+    padding-top: var(--nav-height);
+    width: min(75rem, 85vw);
+    margin: 0 auto;
+
+}
+
+.cards-container {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    justify-content: center;
+    justify-items: center;
+    height: max-content;
+
+}
+
+.card {
+    background-color: var(--bg-body);
+    width: 90%;
+    min-width: 12rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--color-txt);
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0;
+    padding-top: 1.3rem;
+    display: flex;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 1.3rem;
+}
+
+.card-content {
+    padding-top: 1rem;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.star {
+    width: 8%;
+    opacity: .8;
+    margin: 0 1.3rem 1rem 0;
+}
+
+.star-full {
+    background-image: url('../public/star-full.png');
+    background-repeat: no-repeat;
+}
+
+.star:hover {
+    transform: scale(1.05);
+    transition: ease-in-out .5s;
+}
+
+.star img {
+    width: 100%;
+}
+
+@media (max-width: 56.25rem) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.favorite-container>p {
+    text-align: center;
+    margin: 30vh 0;
+    font-size: 1.8rem;
+    color: grey;
 }
