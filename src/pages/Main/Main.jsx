@@ -19,7 +19,7 @@ export default function Main() {
   };
 
   useEffect(() => {
-    if (characters.length === 0 || !input) dispatch(getAllCharactersThunk(currPage));
+    if (characters.length === 0) dispatch(getAllCharactersThunk(currPage));
     window.addEventListener('scroll', onScroll);
   }, []);
 
