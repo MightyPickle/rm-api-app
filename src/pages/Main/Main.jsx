@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import AllCards from '../../components/AllCards/AllCards';
 import Input from '../../components/Input/Input';
@@ -19,7 +19,9 @@ export default function Main() {
   };
 
   useEffect(() => {
-    if (characters.length === 0) dispatch(getAllCharactersThunk(currPage));
+    if (!characters.length) {
+      dispatch(getAllCharactersThunk(currPage));
+    }
     window.addEventListener('scroll', onScroll);
   }, []);
 
@@ -27,15 +29,13 @@ export default function Main() {
     if (input) {
       setCurrPage(1);
       dispatch(getByNameThunk({ currPage, input }));
-    } else {
-      dispatch(getAllCharactersThunk(currPage));
     }
   }, [input]);
 
   useEffect(() => {
-    if (input) {
+    if (input && currPage > 1) {
       dispatch(getByNameThunk({ currPage, input }));
-    } else {
+    } else if (currPage > 1) {
       dispatch(getAllCharactersThunk(currPage));
     }
   }, [currPage]);

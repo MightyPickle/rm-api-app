@@ -195,10 +195,10 @@
     margin: 0 1.3rem 1rem 0;
 }
 
-.star-full {
+/* .star-full {
     background-image: url('../public/star-full.png');
     background-repeat: no-repeat;
-}
+} */
 
 .star:hover {
     transform: scale(1.05);
