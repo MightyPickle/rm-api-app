@@ -4,7 +4,6 @@ export const getCharactersAC = (payload) => ({ type: GET_CHARACTERS, payload });
 export const addCharactersAC = (payload) => ({ type: ADD_CHARACTERS, payload });
 
 export const getAllCharactersThunk = (payload) => async (dispatch) => {
-  console.log('allthunk');
   const response = await fetch(`https://rickandmortyapi.com/api/character?page=${payload}`);
   if (response.ok) {
     const data = await response.json();
@@ -29,12 +28,12 @@ export const getByNameThunk = (payload) => async (dispatch) => {
   }
 };
 
-export const getDudeAC = (payload) => ({ type: GET_DUDE, payload });
+// export const getDudeAC = (payload) => ({ type: GET_DUDE, payload });
 
-export const getDudeThunk = (payload) => async (dispatch) => {
-  const response = await fetch(`https://rickandmortyapi.com/api/character/${payload}`);
-  if (response.ok) {
-    const data = await response.json();
-    dispatch(getDudeAC(data));
-  }
-};
+// export const getDudeThunk = (payload) => async (dispatch) => {
+//   const response = await fetch(`https://rickandmortyapi.com/api/character/${payload}`);
+//   if (response.ok) {
+//     const data = await response.json();
+//     dispatch(getDudeAC(data));
+//   }
+// };
