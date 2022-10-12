@@ -1,5 +1,6 @@
 .App {
     background-color: var(--bg-main);
+    min-width: fit-content;
 
 }
 
@@ -56,14 +57,12 @@
     width: 3rem;
     height: 1.5rem;
     border-radius: 14px;
-    /* border: solid 1px black; */
     background-color: var(--bg-second);
     cursor: pointer;
     position: relative;
 }
 
 .toggler-circle {
-    /* border: solid 1px black; */
     width: 1.35rem;
     height: 1.35rem;
     border-radius: 50%;
@@ -95,7 +94,6 @@
     width: 70%;
     display: flex;
     justify-content: space-between;
-    /* margin: 0 auto; */
 }
 
 .input {
@@ -195,11 +193,6 @@
     margin: 0 1.3rem 1rem 0;
 }
 
-.star-full {
-    background-image: url('../public/star-full.png');
-    background-repeat: no-repeat;
-}
-
 .star:hover {
     transform: scale(1.05);
     transition: ease-in-out .5s;
@@ -215,9 +208,18 @@
     }
 }
 
-.favorite-container>p {
+.favorite-container {
+    height: max-content;
+}
+
+.favorite-empty {
+    height: calc(100vh - var(--nav-height));
+    padding: 40vh 0;
+
+}
+
+.favorite-empty>p {
     text-align: center;
-    margin: 30vh 0;
     font-size: 1.8rem;
     color: grey;
 }

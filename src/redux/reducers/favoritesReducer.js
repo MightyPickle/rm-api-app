@@ -4,7 +4,7 @@ const favoritesReducer = (state = [], action) => {
   const { type, payload } = action;
   switch (type) {
     case LIKE_CHARACTER:
-      if (state.includes(payload)) {
+      if (state.find((el) => el.id === payload.id)) {
         return state.filter((el) => el.id !== payload.id);
       }
       return [...state, payload];
