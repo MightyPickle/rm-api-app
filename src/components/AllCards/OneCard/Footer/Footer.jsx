@@ -9,7 +9,7 @@ export default function Footer({ character }) {
   return (
     <div className="card-footer">
       <div className="star star-full" onClick={() => dispatch(likeCharacterAC(character))}>
-        {check(character, favs) ? <img src={`${window.location.origin}/icons/star-full.png`} alt="star" /> : <img src={`${window.location.origin}/icons/star-line.png`} alt="star" />}
+        {check(character, favs) ? <img src="./icons/star-full.png" alt="star" /> : <img src="./icons/star-line.png" alt="star" />}
 
       </div>
     </div>
