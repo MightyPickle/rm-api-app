@@ -1,5 +1,6 @@
 .App {
     background-color: var(--bg-main);
+    min-width: fit-content;
 
 }
 
@@ -56,14 +57,12 @@
     width: 3rem;
     height: 1.5rem;
     border-radius: 14px;
-    /* border: solid 1px black; */
     background-color: var(--bg-second);
     cursor: pointer;
     position: relative;
 }
 
 .toggler-circle {
-    /* border: solid 1px black; */
     width: 1.35rem;
     height: 1.35rem;
     border-radius: 50%;
@@ -95,7 +94,6 @@
     width: 70%;
     display: flex;
     justify-content: space-between;
-    /* margin: 0 auto; */
 }
 
 .input {
