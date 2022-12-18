@@ -1,49 +1,44 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import AllCards from '../../components/AllCards/AllCards';
-import Input from '../../components/Input/Input';
-import { getAllCharactersThunk, getByNameThunk } from '../../redux/actions/charactersAction';
+import Button from '../../components/Button/Button';
+import { emptyCharacters, fetchCharacters } from '../../redux/charactersSlice';
 
 export default function Main() {
-  const [input, setInput] = useState('');
+  const { characters, loading } = useSelector((state) => state.characters);
+  const [characterState, setCharacterState] = useState(characters || []);
   const dispatch = useDispatch();
-  const characters = useSelector((state) => state.characters);
-  const [currPage, setCurrPage] = useState(1);
-
-  const onScroll = (e) => {
-    const userScrollHeight = e.target.documentElement.scrollTop + window.innerHeight;
-    const windowBottomHeight = e.target.documentElement.scrollHeight;
-    if (userScrollHeight === windowBottomHeight) {
-      setCurrPage((prev) => prev + 1);
-    }
-  };
-
   useEffect(() => {
     if (!characters.length) {
-      dispatch(getAllCharactersThunk(currPage));
+      dispatch(fetchCharacters());
     }
-    window.addEventListener('scroll', onScroll);
+    return () => dispatch(emptyCharacters());
   }, []);
 
-  useEffect(() => {
-    if (input) {
-      setCurrPage(1);
-      dispatch(getByNameThunk({ currPage, input }));
+  const filter = (buttonRef) => {
+    if (buttonRef.current.classList.contains('active')) {
+      buttonRef.current.classList.remove('active');
+      setCharacterState(characters);
+    } else {
+      buttonRef.current.classList.add('active');
+      setCharacterState(characters.filter((el) => el.fav));
     }
-  }, [input]);
+  };
+  const filterRef = useRef();
 
   useEffect(() => {
-    if (input && currPage > 1) {
-      dispatch(getByNameThunk({ currPage, input }));
-    } else if (currPage > 1) {
-      dispatch(getAllCharactersThunk(currPage));
+    if (!filterRef.current.classList.contains('active')) {
+      setCharacterState(characters);
+    } else {
+      setCharacterState(characters.filter((el) => el.fav));
     }
-  }, [currPage]);
+  }, [characters]);
 
   return (
     <div className="main-container">
-      <Input setInput={setInput} />
-      <AllCards characters={characters} />
+      {loading && <div className="loader">LOADING...</div> }
+      <Button filter={filter} filterRef={filterRef} />
+      <AllCards characters={characterState} />
     </div>
   );
 }

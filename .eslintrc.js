@@ -21,7 +21,6 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 0,
     'react/prop-types': 0,
     'react/react-in-jsx-scope': 0,
-    'no-unused-vars': 0,
     'react/no-array-index-key': 0,
     'jsx-a11y/anchor-is-valid': 0,
     'jsx-a11y/label-has-associated-control': 0,
@@ -30,5 +29,7 @@ module.exports = {
     'default-param-last': 0,
     'import/prefer-default-export': 0,
     'no-unused-expressions': 0,
+    'no-param-reassign': 0,
+    'no-nested-ternary': 0,
   },
 };

@@ -19,7 +19,7 @@
   --light-text: hsl(0, 0%, 0%);
   --light-nav-text: hsl(0, 0%, 14%);
 
-  --shadow: hsla(240, 5%, 41%, 0.527) 3px 3px 25px 0px;
+  --shadow: hsla(240, 5%, 41%, 0.527) 2px 2px 15px 0px;
   --nav-height: 4rem
 }
 

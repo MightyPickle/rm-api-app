@@ -129,6 +129,12 @@
     cursor: pointer;
 }
 
+.btn.active {
+    background-color: rgb(60, 185, 93);
+    box-shadow: 0 0 3px rgba(2, 248, 64, 0.847);
+    color: white;
+}
+
 .container {
     padding-top: var(--nav-height);
     width: min(75rem, 85vw);
@@ -136,8 +142,12 @@
 
 }
 
+.main-container {
+    padding-top: 1rem
+}
+
 .cards-container {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
@@ -185,12 +195,15 @@
 .card-footer {
     display: flex;
     justify-content: flex-end;
+    gap: 1rem;
+    align-items: center;
+    padding: .5rem 1.5rem;
 }
 
 .star {
     width: 8%;
     opacity: .8;
-    margin: 0 1.3rem 1rem 0;
+    /* margin: 0 1.3rem 1rem 0; */
 }
 
 .star:hover {
